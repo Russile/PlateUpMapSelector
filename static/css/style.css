@@ -30,6 +30,7 @@
     color: #666;
     cursor: pointer;
     user-select: none;
+    transition: all 0.2s ease;
 }
 .tag:hover {
     background: #dee2e6;
@@ -37,6 +38,8 @@
 .tag.active {
     background: #198754;
     color: white;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .selected-count {
     position: fixed;
@@ -144,4 +147,9 @@
 }
 .filters-button i {
     margin-left: 5px;
+}
+/* Make active tags in the filter menu more prominent */
+.filters-content .tag.active {
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 } 

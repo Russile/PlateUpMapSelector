@@ -97,6 +97,7 @@ function toggleTagFilter(tag) {
         activeTagFilters.add(tag);
     }
     updateActiveFilters();
+    updateTagFilters();
     filterMaps();
 }
 
