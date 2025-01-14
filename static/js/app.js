@@ -188,8 +188,17 @@ function toggleMapSelection(index) {
 }
 
 function saveSelection() {
-    const selectedMapData = Array.from(selectedMaps).map(index => maps[index]);
-    const blob = new Blob([JSON.stringify(selectedMapData, null, 2)], { type: 'application/json' });
+    // Create the JSON structure with the required format
+    const exportData = {
+        "Running Sushi": selectedMaps.size > 0 ? Array.from(selectedMaps).map(index => maps[index].map_string).join("") : "",
+        "Creative Mode Map": "",
+        "Kitchen and Garden": "",
+        "2HKitchenV2": "",
+        "Private Seating": "",
+        "Booths": ""
+    };
+
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     
     const a = document.createElement('a');
