@@ -231,7 +231,7 @@ fetch('maps_data.json')
         const defaultMaps = [
             {
                 name: "Running Sushi",
-                map_string: "1NTowOjIsMjsxLDM6MTgsMTI6Mi4zOSwxLjYsMi42LDEuNiwyLjYsMS42LDIuNiwxLjYsMi42LDEuNiwyLjYsMS42LDEuNiwyLjYsMS42LDEuNiwyLjYsMS42LDEuNiwyLjYsMS42LDEuNiwyLjYsMS42LDEuNiwyLjYsMS42LDEuMzk6Miw3LDMsNywyOzIsNiwzLDYsMjsyLDUsMyw1LDI7Miw0LDMsNCwyOzEsLTEsMSwwLDM7NSw4LDUsOSwyOzQsOCw0LDksMjs2LDgsNiw5LDI7OCw4LDgsOSwyOzksOCw5LDksMjs3LDgsNyw5LDI7MTAsOCwxMCw5LDI7MTEsOCwxMSw5LDI7MTIsOCwxMiw5LDI7MTMsOCwxMyw5LDI7MTQsNywxNSw3LDI7MTQsNiwxNSw2LDI7MTQsNCwxNSw0LDI7MTMsMiwxMywzLDI7MTIsMiwxMiwzLDI7MTEsMiwxMSwzLDI7MTAsMiwxMCwzLDI7OCwyLDgsMywyOzcsMiw3LDMsMjs1LDIsNSwzLDI7NCwyLDQsMywyOzE0LDUsMTUsNSwxOzYsMiw2LDMsMTs5LDIsOSwzLDI7Miw4LDMsOCwyOzMsOCwzLDksMjsxNCw4LDE0LDksMjsxNCw4LDE1LDgsMjsxNCwzLDE1LDMsMjsxNCwyLDE0LDMsMjsyLDMsMywzLDI7MywyLDMsMywyOg==",
+                map_string: "1NTowOjIsMjsxLDM6MTgsMTI6Mi4zOSwxLjYsMi42LDEuNiwyLjYsMS42LDIuNiwxLjYsMi42LDEuNiwyLjYsMS42LDIuNiwxLjYsMi42LDEuNiwyLjYsMS42LDIuNiwxLjYsMi42LDEuNiwyLjYsMS42LDIuMzk6Miw3LDMsNywyOzIsNiwzLDYsMjsyLDUsMyw1LDI7Miw0LDMsNCwyOzEsLTEsMSwwLDM7NSw4LDUsOSwyOzQsOCw0LDksMjs2LDgsNiw5LDI7OCw4LDgsOSwyOzksOCw5LDksMjs3LDgsNyw5LDI7MTAsOCwxMCw5LDI7MTEsOCwxMSw5LDI7MTIsOCwxMiw5LDI7MTMsOCwxMyw5LDI7MTQsNywxNSw3LDI7MTQsNiwxNSw2LDI7MTQsNCwxNSw0LDI7MTMsMiwxMywzLDI7MTIsMiwxMiwzLDI7MTEsMiwxMSwzLDI7MTAsMiwxMCwzLDI7OCwyLDgsMywyOzcsMiw3LDMsMjs1LDIsNSwzLDI7NCwyLDQsMywyOzE0LDUsMTUsNSwxOzYsMiw2LDMsMTs5LDIsOSwzLDI7Miw4LDMsOCwyOzMsOCwzLDksMjsxNCw4LDE0LDksMjsxNCw4LDE1LDgsMjsxNCwzLDE1LDMsMjsxNCwyLDE0LDMsMjsyLDMsMywzLDI7MywyLDMsMywyOg==",
                 tags: ["diner", "Large", "4p+"],
                 image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><rect width='200' height='200' fill='%23f8f9fa'/><text x='50%' y='50%' font-size='16' text-anchor='middle' fill='%23666'>Default Running Sushi</text></svg>"
             },
@@ -265,6 +265,12 @@ fetch('maps_data.json')
         maps = [...defaultMaps, ...data.maps];
         console.log(`Loaded ${maps.length} maps (including ${defaultMaps.length} default maps)`);
         
+        // Pre-select default maps
+        defaultMaps.forEach((_, index) => {
+            selectedMaps.add(index);
+        });
+        document.getElementById('selectedCount').textContent = selectedMaps.size;
+        
         // Collect all unique tags
         maps.forEach(map => {
             if (map.tags && Array.isArray(map.tags)) {
@@ -278,7 +284,7 @@ fetch('maps_data.json')
             const card = document.createElement('div');
             card.className = 'col-md-4 col-lg-3 mb-4';
             card.innerHTML = `
-                <div id="map-${index}" class="card map-card" onclick="toggleMapSelection(${index})">
+                <div id="map-${index}" class="card map-card ${selectedMaps.has(index) ? 'selected' : ''}" onclick="toggleMapSelection(${index})">
                     <img src="${map.image || ''}" class="map-image" alt="${map.name || 'Unnamed Map'}" 
                          onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23f8f9fa%22/><text x=%2250%22 y=%2250%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23666%22>No Image</text></svg>'">
                     <div class="card-body">
