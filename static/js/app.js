@@ -8,7 +8,9 @@ let expandedCategories = new Set(['Player Count', 'Size', 'Type']);
 document.addEventListener('click', function(event) {
     const dropdown = document.querySelector('.filters-dropdown');
     const button = document.querySelector('.filters-button');
-    if (!dropdown.contains(event.target)) {
+    
+    // Don't close if clicking inside the dropdown or on a tag
+    if (!dropdown.contains(event.target) && !event.target.classList.contains('tag')) {
         dropdown.classList.remove('show');
     }
 });
@@ -91,6 +93,9 @@ function toggleTagGroup(category) {
 }
 
 function toggleTagFilter(tag) {
+    // Stop event propagation to prevent the dropdown from closing
+    event.stopPropagation();
+    
     if (activeTagFilters.has(tag)) {
         activeTagFilters.delete(tag);
     } else {
