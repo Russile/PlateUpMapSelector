@@ -1,0 +1,147 @@
+.map-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.map-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.map-card.selected {
+    border: 2px solid #198754;
+    background-color: #f8f9fa;
+}
+.save-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+.map-tags {
+    margin-bottom: 10px;
+}
+.tag {
+    display: inline-block;
+    background: #e9ecef;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin: 2px;
+    font-size: 0.85em;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+}
+.tag:hover {
+    background: #dee2e6;
+}
+.tag.active {
+    background: #198754;
+    color: white;
+}
+.selected-count {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+.top-bar {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px 0;
+    z-index: 100;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 20px;
+}
+.map-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+}
+.no-maps-message {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+.tag-group {
+    margin-bottom: 5px;
+}
+.tag-group-header {
+    cursor: pointer;
+    padding: 4px 8px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+.tag-group-header:hover {
+    background: #e9ecef;
+}
+.tag-group-title {
+    color: #666;
+    margin: 0;
+    font-weight: bold;
+}
+.tag-group-content {
+    padding: 2px 4px;
+    display: none;
+}
+.tag-group-content.show {
+    display: block;
+}
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    min-height: 30px;
+}
+.filter-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #198754;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+}
+.filter-badge .remove-filter {
+    margin-left: 5px;
+    cursor: pointer;
+}
+.filter-badge .remove-filter:hover {
+    opacity: 0.8;
+}
+.filters-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.filters-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+.filters-dropdown.show .filters-content {
+    display: block;
+}
+.filters-button {
+    white-space: nowrap;
+}
+.filters-button i {
+    margin-left: 5px;
+} 

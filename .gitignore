@@ -2,17 +2,26 @@
 __pycache__/
 *.py[cod]
 *$py.class
+venv/
+env/
 
-# Distribution
+# Distribution / packaging
 *.zip
-plateup_map_selector_*/
+dist/
+build/
+*.egg-info/
 
-# Development
-parse_docx.py
+# Local development
+app.py
+requirements.txt
+run_map_selector.bat
 create_package.py
 create_package.bat
-run_map_selector.bat
-app.py
+parse_docx.py
+*.docx
 
-# Original data
-*.docx 
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo 
