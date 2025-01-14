@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution
+*.zip
+plateup_map_selector_*/
+
+# Development
+parse_docx.py
+create_package.py
+create_package.bat
+run_map_selector.bat
+app.py
+
+# Original data
+*.docx 
