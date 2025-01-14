@@ -11,11 +11,13 @@
     border: 2px solid #198754;
     background-color: #f8f9fa;
 }
-.save-button {
+.button-group {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+    display: flex;
+    gap: 10px;
 }
 .map-tags {
     margin-bottom: 10px;

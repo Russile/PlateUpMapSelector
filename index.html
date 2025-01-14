@@ -43,9 +43,17 @@
         Selected: <span id="selectedCount">0</span> maps
     </div>
 
-    <button class="btn btn-success btn-lg save-button shadow" onclick="saveSelection()">
-        Save Selection
-    </button>
+    <div class="button-group">
+        <button class="btn btn-danger btn-lg shadow me-2" onclick="clearSelected()">
+            Clear Selected
+        </button>
+        <button class="btn btn-primary btn-lg shadow me-2" onclick="selectDefault()">
+            Select Default
+        </button>
+        <button class="btn btn-success btn-lg shadow" onclick="saveSelection()">
+            Save Selection
+        </button>
+    </div>
 
     <script src="static/js/app.js"></script>
 </body>
