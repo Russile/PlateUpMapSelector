@@ -11,9 +11,14 @@
 <body class="bg-light">
     <div class="container py-5">
         <h1 class="text-center mb-4">PlateUp Map Selector</h1>
+        <p class="text-center mb-4">
+            <a href="https://github.com/Russile/PlateUpMapSelector#prerequisites" target="_blank" class="text-muted">
+                <i class="bi bi-info-circle"></i> Prerequisites and Instructions
+            </a>
+        </p>
         
         <div class="top-bar">
-            <div class="row align-items-center">
+            <div class="row align-items-center mb-2">
                 <div class="col">
                     <div class="input-group">
                         <div class="filters-dropdown">
@@ -25,12 +30,22 @@
                             </div>
                         </div>
                         <input type="text" class="form-control" id="searchInput" placeholder="Search maps...">
-                        <button class="btn btn-outline-secondary" type="button" onclick="clearFilters()">Clear All</button>
+                        <button class="btn btn-outline-secondary" type="button" onclick="clearFilters()">Clear Filters</button>
                     </div>
                 </div>
             </div>
-            <div class="active-filters mt-2" id="activeFilters">
-                <!-- Active filters will be shown here -->
+            <div class="d-flex align-items-center gap-3">
+                <div class="selection-controls">
+                    <button class="btn btn-sm btn-danger" onclick="clearSelected()">
+                        Clear Selected
+                    </button>
+                    <button class="btn btn-sm btn-primary" onclick="selectDefault()">
+                        Select Default
+                    </button>
+                </div>
+                <div class="active-filters flex-grow-1" id="activeFilters">
+                    <!-- Active filters will be shown here -->
+                </div>
             </div>
         </div>
 
@@ -38,21 +53,18 @@
             <!-- Maps will be dynamically inserted here -->
         </div>
     </div>
-    
-    <div class="selected-count bg-dark text-light p-3 rounded shadow">
-        Selected: <span id="selectedCount">0</span> maps
-    </div>
 
-    <div class="button-group">
-        <button class="btn btn-danger btn-lg shadow me-2" onclick="clearSelected()">
-            Clear Selected
-        </button>
-        <button class="btn btn-primary btn-lg shadow me-2" onclick="selectDefault()">
-            Select Default
-        </button>
-        <button class="btn btn-success btn-lg shadow" onclick="saveSelection()">
-            Save Selection
-        </button>
+    <!-- Fixed UI elements -->
+    <div class="fixed-ui">
+        <div class="selected-count bg-dark text-light p-3 rounded shadow">
+            Selected: <span id="selectedCount">0</span> maps
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-success btn-lg shadow" onclick="saveSelection()">
+                Save Selection
+            </button>
+        </div>
     </div>
 
     <script src="static/js/app.js"></script>
