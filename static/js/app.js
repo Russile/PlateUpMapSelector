@@ -111,31 +111,53 @@ function filterMaps() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const container = document.getElementById('mapContainer');
     let visibleCount = 0;
-
+    
+    // Clear the container
+    container.innerHTML = '';
+    
+    // Create a document fragment to hold the filtered cards
+    const fragment = document.createDocumentFragment();
+    
     maps.forEach((map, index) => {
-        const card = document.getElementById(`map-${index}`);
         const matchesSearch = map.name.toLowerCase().includes(searchTerm);
         const matchesTags = activeTagFilters.size === 0 || 
             Array.from(activeTagFilters).every(tag => map.tags.includes(tag));
 
         if (matchesSearch && matchesTags) {
-            card.style.display = '';
+            const card = document.createElement('div');
+            card.className = 'col-md-4 col-lg-3 mb-4';
+            card.innerHTML = `
+                <div id="map-${index}" class="card map-card" onclick="toggleMapSelection(${index})">
+                    <img src="${map.image || ''}" class="map-image" alt="${map.name || 'Unnamed Map'}" 
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23f8f9fa%22/><text x=%2250%22 y=%2250%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23666%22>No Image</text></svg>'">
+                    <div class="card-body">
+                        <h5 class="card-title">${map.name || 'Unnamed Map'}</h5>
+                        <div class="map-tags">
+                            ${(map.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Restore selected state if the map was previously selected
+            if (selectedMaps.has(index)) {
+                card.querySelector('.map-card').classList.add('selected');
+            }
+            
+            fragment.appendChild(card);
             visibleCount++;
-        } else {
-            card.style.display = 'none';
         }
     });
 
+    // Add all filtered cards to the container at once
+    container.appendChild(fragment);
+
     if (visibleCount === 0) {
-        if (!document.querySelector('.no-maps-message')) {
-            const message = document.createElement('div');
-            message.className = 'no-maps-message col-12';
-            message.innerHTML = 'No maps match your filters. Try adjusting your search criteria.';
-            container.appendChild(message);
-        }
-    } else {
-        const message = document.querySelector('.no-maps-message');
-        if (message) message.remove();
+        container.innerHTML = `
+            <div class="no-maps-message col-12">
+                No maps match your filters. Try adjusting your search criteria.
+            </div>
+        `;
     }
 }
 
