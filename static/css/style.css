@@ -26,12 +26,6 @@
     pointer-events: auto;
 }
 
-.selected-count {
-    position: absolute;
-    left: 20px;
-    bottom: 0;
-}
-
 .button-group {
     position: absolute;
     right: 20px;
@@ -48,9 +42,30 @@
 }
 
 .selection-controls button {
-    padding: 0.25rem 0.75rem;
+    padding: 0.375rem 0.75rem;
     font-size: 0.875rem;
     white-space: nowrap;
+    height: 31px;
+    display: flex;
+    align-items: center;
+}
+
+.selected-count {
+    font-size: 0.875rem;
+    white-space: nowrap;
+    padding: 0.375rem 0.75rem;
+    height: 31px;
+    display: flex;
+    align-items: center;
+}
+
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    min-height: 30px;
+    margin: 0;
 }
 
 .map-tags {
@@ -126,14 +141,6 @@
 }
 .tag-group-content.show {
     display: block;
-}
-.active-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    align-items: center;
-    min-height: 30px;
-    margin: 0;
 }
 .filter-badge {
     display: inline-flex;

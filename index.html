@@ -35,11 +35,14 @@
                 </div>
             </div>
             <div class="d-flex align-items-center gap-3">
+                <div class="selected-count bg-dark text-light d-flex align-items-center px-3 rounded-2" style="height: 31px;">
+                    Selected: <span id="selectedCount" class="ms-1">0</span><span class="ms-1">maps</span>
+                </div>
                 <div class="selection-controls">
-                    <button class="btn btn-sm btn-danger" onclick="clearSelected()">
+                    <button class="btn btn-sm btn-danger d-flex align-items-center" style="height: 31px;" onclick="clearSelected()">
                         Clear Selected
                     </button>
-                    <button class="btn btn-sm btn-primary" onclick="selectDefault()">
+                    <button class="btn btn-sm btn-primary d-flex align-items-center" style="height: 31px;" onclick="selectDefault()">
                         Select Default
                     </button>
                 </div>
@@ -56,10 +59,6 @@
 
     <!-- Fixed UI elements -->
     <div class="fixed-ui">
-        <div class="selected-count bg-dark text-light p-3 rounded shadow">
-            Selected: <span id="selectedCount">0</span> maps
-        </div>
-
         <div class="button-group">
             <button class="btn btn-success btn-lg shadow" onclick="saveSelection()">
                 Save Selection

@@ -123,6 +123,16 @@ function filterMaps() {
     const container = document.getElementById('mapContainer');
     let visibleCount = 0;
     
+    // Group active filters by category
+    const activeFiltersByCategory = {};
+    activeTagFilters.forEach(tag => {
+        const category = Object.keys(tagCategories).find(cat => tagCategories[cat](tag));
+        if (!activeFiltersByCategory[category]) {
+            activeFiltersByCategory[category] = new Set();
+        }
+        activeFiltersByCategory[category].add(tag);
+    });
+    
     // Clear the container
     container.innerHTML = '';
     
@@ -131,8 +141,15 @@ function filterMaps() {
     
     maps.forEach((map, index) => {
         const matchesSearch = map.name.toLowerCase().includes(searchTerm);
+        
+        // Check if map matches filters:
+        // - For each category, the map must match at least one of the selected tags (OR within category)
+        // - The map must match all active categories (AND between categories)
         const matchesTags = activeTagFilters.size === 0 || 
-            Array.from(activeTagFilters).every(tag => map.tags.includes(tag));
+            Object.entries(activeFiltersByCategory).every(([category, categoryTags]) => {
+                // For each category, check if the map has at least one matching tag
+                return Array.from(categoryTags).some(tag => map.tags.includes(tag));
+            });
 
         if (matchesSearch && matchesTags) {
             const card = document.createElement('div');
