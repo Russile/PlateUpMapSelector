@@ -9,8 +9,10 @@ document.addEventListener('click', function(event) {
     const dropdown = document.querySelector('.filters-dropdown');
     const button = document.querySelector('.filters-button');
     
-    // Don't close if clicking inside the dropdown or on a tag
-    if (!dropdown.contains(event.target) && !event.target.classList.contains('tag')) {
+    // Don't close if clicking inside the dropdown, on a tag, or on a category header
+    if (!dropdown.contains(event.target) && 
+        !event.target.classList.contains('tag') && 
+        !event.target.closest('.tag-group-header')) {
         dropdown.classList.remove('show');
     }
 });
@@ -84,6 +86,9 @@ function updateTagFilters() {
 }
 
 function toggleTagGroup(category) {
+    // Stop event propagation to prevent the dropdown from closing
+    event.stopPropagation();
+    
     if (expandedCategories.has(category)) {
         expandedCategories.delete(category);
     } else {
