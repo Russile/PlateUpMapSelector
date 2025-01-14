@@ -11,14 +11,48 @@
     border: 2px solid #198754;
     background-color: #f8f9fa;
 }
-.button-group {
+
+/* Fixed UI elements */
+.fixed-ui {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    pointer-events: none;
+}
+
+.fixed-ui > * {
+    pointer-events: auto;
+}
+
+.selected-count {
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+}
+
+.button-group {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
     display: flex;
     gap: 10px;
 }
+
+/* Selection Controls */
+.selection-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.selection-controls button {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
 .map-tags {
     margin-bottom: 10px;
 }
@@ -42,12 +76,6 @@
     color: white;
     font-weight: 500;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-.selected-count {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000;
 }
 .top-bar {
     position: sticky;
@@ -105,6 +133,7 @@
     gap: 5px;
     align-items: center;
     min-height: 30px;
+    margin: 0;
 }
 .filter-badge {
     display: inline-flex;

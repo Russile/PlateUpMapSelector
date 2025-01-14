@@ -262,31 +262,31 @@ fetch('maps_data.json')
             {
                 name: "Running Sushi",
                 map_string: "1NTowOjIsMjsxLDM6MTgsMTI6Mi4zOSwxLjYsMi42LDEuNiwyLjYsMS42LDIuNiwxLjYsMi42LDEuNiwyLjYsMS42LDIuNiwxLjYsMi42LDEuNiwyLjYsMS42LDIuNiwxLjYsMi42LDEuNiwyLjYsMS42LDIuMzk6Miw3LDMsNywyOzIsNiwzLDYsMjsyLDUsMyw1LDI7Miw0LDMsNCwyOzEsLTEsMSwwLDM7NSw4LDUsOSwyOzQsOCw0LDksMjs2LDgsNiw5LDI7OCw4LDgsOSwyOzksOCw5LDksMjs3LDgsNyw5LDI7MTAsOCwxMCw5LDI7MTEsOCwxMSw5LDI7MTIsOCwxMiw5LDI7MTMsOCwxMyw5LDI7MTQsNywxNSw3LDI7MTQsNiwxNSw2LDI7MTQsNCwxNSw0LDI7MTMsMiwxMywzLDI7MTIsMiwxMiwzLDI7MTEsMiwxMSwzLDI7MTAsMiwxMCwzLDI7OCwyLDgsMywyOzcsMiw3LDMsMjs1LDIsNSwzLDI7NCwyLDQsMywyOzE0LDUsMTUsNSwxOzYsMiw2LDMsMTs5LDIsOSwzLDI7Miw4LDMsOCwyOzMsOCwzLDksMjsxNCw4LDE0LDksMjsxNCw4LDE1LDgsMjsxNCwzLDE1LDMsMjsxNCwyLDE0LDMsMjsyLDMsMywzLDI7MywyLDMsMywyOg==",
-                tags: ["default", "diner", "Large", "4p+"],
+                tags: ["Default", "diner", "Large", "4p+"],
                 image: "static/images/Running Sushi.png"
             },
             {
                 name: "Creative Mode Map",
                 map_string: "1NTowOjIsMjsxLDM6MjEsMTI6Mi4xMjAsMS4xMzI6NCwtMSw0LDAsMzs5LDAsMTAsMCwyOzksMiwxMCwyLDI7OSwzLDEwLDMsMjs5LDQsMTAsNCwyOzksNSwxMCw1LDI7OSw3LDEwLDcsMjs5LDYsMTAsNiwyOzksOCwxMCw4LDI7OSw5LDEwLDksMjs5LDEwLDEwLDEwLDI7OSwxMSwxMCwxMSwyOzksMSwxMCwxLDE6",
-                tags: ["default", "creative", "Medium", "2p+"],
+                tags: ["Default", "creative", "Medium", "2p+"],
                 image: "static/images/Creative Mode Map.png"
             },
             {
                 name: "Kitchen and Garden",
                 map_string: "2NTU3OTQzMTU1OjQ0NzQzNzE2MzoyLDI7Myw0OzEsMzoyMiwxMToyLjMzLDMuMiwxLjksMy4yLDEuOSwzLjIsMS45LDMuMiwxLjksMy4yLDEuOSwzLjIsMS45LDMuMiwxLjksMy4yLDEuOSwzLjIsMS45LDMuMiwxLjksMy4yLDEuOSwzLjIsMS45LDMuMiwxLjksMy4yLDEuOSwzLjIsMS45LDMuMiwxLjksMy4yLDEuOSwzLjIsMS45LDMuMiwxLjk6MywxLDMsMiwyOzQsMSw0LDIsMjs1LDEsNSwyLDI7NiwxLDYsMiwyOzgsMSw4LDIsMjs3LDEsNywyLDI7OSwxLDksMiwyOzEwLDEsMTAsMiwyOzEyLDEsMTIsMiwyOzExLDEsMTEsMiwyOzEzLDEsMTMsMiwyOzE0LDEsMTQsMiwyOzE1LDEsMTUsMiwyOzE3LDEsMTcsMiwyOzE2LDEsMTYsMiwyOzE5LDEsMTksMiwyOzE4LDEsMTgsMiwyOzIwLDEsMjAsMiwyOzIxLDEsMjEsMiwyOzMsLTEsMywwLDI7NCwtMSw0LDAsMjs1LC0xLDUsMCwyOzYsLTEsNiwwLDI7NywtMSw3LDAsMjs4LC0xLDgsMCwyOzksLTEsOSwwLDI7MTAsLTEsMTAsMCwyOzExLC0xLDExLDAsMjsxMiwtMSwxMiwwLDI7MTMsLTEsMTMsMCwyOzE0LC0xLDE0LDAsMjsxNSwtMSwxNSwwLDI7MTYsLTEsMTYsMCwyOzE3LC0xLDE3LDAsMjsxOCwtMSwxOCwwLDI7MTksLTEsMTksMCwyOzIwLC0xLDIwLDAsMjsyMSwtMSwyMSwwLDI7Miw5LDMsOSwxOzEsLTEsMSwwLDM7MiwwLDMsMCwxOg==",
-                tags: ["default", "garden", "kitchen", "Large", "3p+"],
+                tags: ["Default", "garden", "kitchen", "Large", "3p+"],
                 image: "static/images/Kitchen and Garden.png"
             },
             {
                 name: "Private Seating",
                 map_string: "1MTowOjEsMzsyLDI7MywxOjIxLDEzOjIuNCwzLjEsMS44LDIuNCwzLjEsMS44LDIuNCwzLjEsMS44LDMuNiwyLjQsMS4zLDMuNiwyLjQsMS4zLDIuNCwzLjIsMi40LDEuMywyLjQsMy4xLDEuOCwyLjQsMy4yLDIuNCwxLjMsMy42LDIuNCwxLjMsMy42LDIuNCwxLjMsMy41LDEuOCwzLjYsMi40LDEuMywyLjQsMy4yLDIuNCwxLjMsMi40LDMuMSwxLjgsMi40LDMuMiwyLjQsMS4zLDMuNiwyLjQsMS4zLDMuNiwyLjQsMS4zLDIuNCwzLjEsMS44LDIuNCwzLjEsMS44LDIuNCwzLjEsMS44OjUsNSw2LDUsMjs4LDUsOCw2LDE7MTQsNSwxNSw1LDI7MiwyLDMsMiwxOzcsMiw4LDIsMTsxMiwyLDEzLDIsMTsxNywyLDE4LDIsMTsxNiw1LDE2LDYsMTs0LDUsNCw2LDE7Niw0LDYsNSwyOzYsNSw3LDUsMjs5LDUsMTAsNSwyOzEwLDUsMTEsNSwyOzEwLDQsMTAsNSwyOzEyLDUsMTIsNiwxOzE0LDQsMTQsNSwyOzEzLDUsMTQsNSwyOzEsNCwxLDUsMTsxOSw0LDE5LDUsMTs2LC0xLDYsMCwzOg==",
-                tags: ["default", "private", "restaurant", "Large", "4p+"],
+                tags: ["Default", "private", "restaurant", "Large", "4p+"],
                 image: "static/images/Private Seating.png"
             },
             {
                 name: "Booths",
                 map_string: "1MTowOjIsMjszLDE7MSwzOjE5LDk6My4yNywyLjUsMS40LDIuNSwxLjQsMi41LDEuNCwzLjIsMi4zLDMuMiwxLjIsMi41LDEuNCwyLjUsMS40LDIuNSwxLjQsMy4yLDIuMywzLjIsMS4yLDIuNSwxLjQsMi41LDEuNCwyLjUsMS40LDMuMiwyLjMsMy4yLDEuMiwyLjUsMS40LDIuNSwxLjQsMi41LDEuNCwyLjUsMS40OjE3LC0xLDE3LDAsMzsxNyw0LDE3LDUsMTsyLDYsMyw2LDE7MiwzLDMsMywxOzUsMCw2LDAsMjs1LDEsNiwxLDI7NiwxLDYsMiwyOzYsMSw3LDEsMjs2LDAsNywwLDI7OSwwLDEwLDAsMjs5LDEsMTAsMSwyOzEwLDEsMTAsMiwyOzEwLDEsMTEsMSwyOzEwLDAsMTEsMCwyOzEzLDAsMTQsMCwyOzEzLDEsMTQsMSwyOzE0LDEsMTQsMiwyOzE0LDEsMTUsMSwyOzE0LDAsMTUsMCwyOzUsNSw2LDUsMjs1LDYsNiw2LDI7Niw2LDYsNywyOzYsNiw3LDYsMjs2LDUsNyw1LDI7OSw1LDEwLDUsMjs5LDYsMTAsNiwyOzEwLDYsMTAsNywyOzEwLDYsMTEsNiwyOzEwLDUsMTEsNSwyOzEzLDUsMTQsNSwyOzEzLDYsMTQsNiwyOzE0LDYsMTQsNywyOzE0LDYsMTUsNiwyOzE0LDUsMTUsNSwyOzEyLDQsMTIsNSwyOzgsNCw4LDUsMjs0LDQsNCw1LDI6",
-                tags: ["default", "booths", "restaurant", "Large", "4p+"],
+                tags: ["Default", "booths", "restaurant", "Large", "4p+"],
                 image: "static/images/Booths.png"
             }
         ];
