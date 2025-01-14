@@ -173,13 +173,24 @@ document.getElementById('searchInput').addEventListener('input', filterMaps);
 
 // Fetch and load map data
 fetch('maps_data.json')
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
-        maps = data;
+        if (!data || !data.maps || !Array.isArray(data.maps)) {
+            throw new Error('Data is not in the expected format (should contain maps array)');
+        }
+        maps = data.maps;
+        console.log(`Loaded ${maps.length} maps`);
         
         // Collect all unique tags
         maps.forEach(map => {
-            map.tags.forEach(tag => allTags.add(tag));
+            if (map.tags && Array.isArray(map.tags)) {
+                map.tags.forEach(tag => allTags.add(tag));
+            }
         });
         
         // Create map cards
@@ -189,11 +200,12 @@ fetch('maps_data.json')
             card.className = 'col-md-4 col-lg-3 mb-4';
             card.innerHTML = `
                 <div id="map-${index}" class="card map-card" onclick="toggleMapSelection(${index})">
-                    <img src="${map.image}" class="map-image" alt="${map.name}">
+                    <img src="${map.image || ''}" class="map-image" alt="${map.name || 'Unnamed Map'}" 
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23f8f9fa%22/><text x=%2250%22 y=%2250%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23666%22>No Image</text></svg>'">
                     <div class="card-body">
-                        <h5 class="card-title">${map.name}</h5>
+                        <h5 class="card-title">${map.name || 'Unnamed Map'}</h5>
                         <div class="map-tags">
-                            ${map.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            ${(map.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}
                         </div>
                     </div>
                 </div>
@@ -206,5 +218,10 @@ fetch('maps_data.json')
     .catch(error => {
         console.error('Error loading map data:', error);
         const container = document.getElementById('mapContainer');
-        container.innerHTML = '<div class="col-12 text-center text-danger">Error loading map data. Please try refreshing the page.</div>';
+        container.innerHTML = `
+            <div class="col-12 text-center text-danger">
+                <p>Error loading map data: ${error.message}</p>
+                <p>Please try refreshing the page. If the error persists, check the console for more details.</p>
+            </div>
+        `;
     }); 
